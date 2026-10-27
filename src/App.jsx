@@ -18,6 +18,7 @@ import ChiSiamo from './Pages/ChiSiamo'
 import Contacts from './Pages/Contacts'
 import Privacy from './Pages/Privacy'
 import Terms from './Pages/Terms'
+import { Navigate } from "react-router-dom";
 
 function App() {
 
@@ -28,7 +29,12 @@ function App() {
         <Route path="/termini" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/contatti" element={<Contacts />} />
-        <Route path="/home" element={<Home />} />
+        <Routes>
+          <Route path="/" element={<Navigate to="/home" replace />} />
+          <Route path="/home" element={<Home />} />
+
+          {/* Mantieni qui tutte le altre route */}
+        </Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/announcements" element={<PublicAnnouncements />} />
