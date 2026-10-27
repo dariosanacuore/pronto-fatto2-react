@@ -1,0 +1,343 @@
+.publish-page {
+    max-width: 1000px;
+}
+
+.publish-card {
+    background: #fff;
+    border: 1px solid #e9edf2;
+    border-radius: 20px;
+    padding: 36px;
+    box-shadow: 0 8px 30px rgba(25, 35, 50, 0.07);
+}
+
+.publish-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-bottom: 28px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid #edf0f4;
+}
+
+.publish-header-icon {
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: #eaf2ff;
+    color: #0d6efd;
+    font-size: 27px;
+}
+
+.publish-header h2 {
+    margin: 0 0 7px;
+    font-size: 1.7rem;
+    font-weight: 750;
+    color: #202938;
+}
+
+.publish-header p {
+    margin: 0;
+    color: #737d8c;
+    line-height: 1.5;
+}
+
+.publish-alert {
+    border-radius: 12px;
+}
+
+.publish-section {
+    margin-bottom: 32px;
+}
+
+.publish-section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 22px;
+    color: #263244;
+    font-size: 1.08rem;
+    font-weight: 700;
+}
+
+.publish-section-title i {
+    color: #0d6efd;
+    font-size: 1.2rem;
+}
+
+.publish-section-description {
+    color: #737d8c;
+    font-size: 0.94rem;
+    line-height: 1.6;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+.publish-label {
+    display: block;
+    margin-bottom: 9px;
+    color: #354052;
+    font-size: 0.94rem;
+    font-weight: 600;
+}
+
+.publish-input {
+    min-height: 48px;
+    border: 1px solid #dce2ea;
+    border-radius: 10px;
+    color: #263244;
+    background-color: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.publish-input:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.11);
+}
+
+.publish-textarea {
+    min-height: 140px;
+    resize: vertical;
+    padding-top: 13px;
+}
+
+.publish-input::placeholder {
+    color: #a1a9b5;
+}
+
+.publish-price-group .input-group-text {
+    min-width: 48px;
+    justify-content: center;
+    border-color: #dce2ea;
+    border-radius: 10px 0 0 10px;
+    background: #f5f7fa;
+    color: #364152;
+    font-weight: 700;
+}
+
+.publish-price-group .publish-input {
+    border-radius: 0 10px 10px 0;
+}
+
+.publish-upload-area {
+    min-height: 190px;
+    padding: 26px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px dashed #cbd8eb;
+    border-radius: 15px;
+    background: #f8faff;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.publish-upload-area:hover {
+    background: #f0f6ff;
+    border-color: #0d6efd;
+}
+
+.publish-upload-area>i {
+    font-size: 2.3rem;
+    color: #0d6efd;
+}
+
+.publish-upload-area strong {
+    color: #263244;
+    font-size: 1rem;
+}
+
+.publish-upload-area span {
+    color: #737d8c;
+    font-size: 0.87rem;
+}
+
+.publish-upload-area .publish-upload-limit {
+    color: #0d6efd;
+    font-weight: 700;
+}
+
+.publish-upload-area input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.publish-image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+    gap: 18px;
+    margin-top: 22px;
+}
+
+.publish-image-item {
+    min-width: 0;
+    position: relative;
+}
+
+.publish-image-item img {
+    display: block;
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border: 1px solid #e3e8ef;
+    border-radius: 12px;
+    background: #f5f7fa;
+}
+
+.publish-remove-image {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(220, 53, 69, 0.95);
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.publish-remove-image:hover {
+    background: #bb2d3b;
+    transform: scale(1.07);
+}
+
+.publish-remove-image:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.publish-main-image-badge {
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    padding: 5px 8px;
+    border-radius: 6px;
+    background: #0d6efd;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.publish-image-name {
+    margin-top: 8px;
+    overflow: hidden;
+    color: #737d8c;
+    font-size: 0.8rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.publish-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 25px;
+    border-top: 1px solid #edf0f4;
+}
+
+.publish-submit-button {
+    min-height: 48px;
+    padding: 11px 22px;
+    border: 1px solid #0d6efd;
+    border-radius: 10px;
+    background: #0d6efd;
+    color: #fff;
+    font-weight: 650;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.publish-submit-button:hover:not(:disabled) {
+    background: #0b5ed7;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.publish-submit-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.publish-cancel-button {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 22px;
+    border: 1px solid #dce2ea;
+    border-radius: 10px;
+    background: #fff;
+    color: #455064;
+    font-weight: 600;
+}
+
+.publish-cancel-button:hover {
+    background: #f5f7fa;
+    border-color: #cbd2dc;
+    color: #263244;
+}
+
+@media (max-width: 576px) {
+    .publish-page {
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+    }
+
+    .publish-card {
+        padding: 22px 17px;
+        border-radius: 15px;
+    }
+
+    .publish-header {
+        align-items: flex-start;
+        gap: 13px;
+    }
+
+    .publish-header-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
+        font-size: 22px;
+    }
+
+    .publish-header h2 {
+        font-size: 1.35rem;
+    }
+
+    .publish-header p {
+        font-size: 0.9rem;
+    }
+
+    .publish-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .publish-submit-button,
+    .publish-cancel-button {
+        width: 100%;
+    }
+
+    .publish-image-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .publish-image-item img {
+        height: 125px;
+    }
+}

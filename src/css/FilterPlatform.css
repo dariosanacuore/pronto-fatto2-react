@@ -1,0 +1,10 @@
+.platform-card {
+    transition: all 0.25s ease;
+}
+
+.platform-card:hover {
+    border-color: #8B5CF6 !important;
+    background-color: #F5F0FF;
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.35);
+    transform: translateY(-3px);
+}
