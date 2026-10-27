@@ -24,17 +24,22 @@ function UserProfileMenu() {
             });
     }, []);
 
-    // Costruisce il percorso della foto
+    // Costruisce il percorso della foto profilo
     function getProfileImage(image) {
         if (!image) {
             return null;
         }
 
+        // Se l'immagine ha già un URL completo, lo restituisce
         if (image.startsWith("http")) {
             return image;
         }
 
-        return `http://localhost:3000${image.startsWith("/") ? "" : "/"}${image}`;
+        // URL del backend configurato nel file .env
+        const API_URL = import.meta.env.VITE_API_URL;
+
+        // Costruisce il percorso completo dell'immagine
+        return `${API_URL}${image.startsWith("/") ? "" : "/"}${image}`;
     }
 
     const profileImage = getProfileImage(user?.immagine_profilo);

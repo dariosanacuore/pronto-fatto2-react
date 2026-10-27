@@ -130,7 +130,7 @@ function MyAnnouncements() {
                         <div className="card h-100">
                             {announcement.image && (
                                 <img
-                                    src={`http://localhost:3000${announcement.image}`}
+                                    src={`${import.meta.env.VITE_API_URL}${announcement.image.startsWith("/") ? "" : "/"}${announcement.image}`}
                                     className="card-img-top"
                                     alt={announcement.title}
                                     style={{

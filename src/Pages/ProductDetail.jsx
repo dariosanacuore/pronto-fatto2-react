@@ -43,13 +43,17 @@ function ProductDetail() {
     function getImageUrl(image) {
         if (!image) return null;
 
-        if (image.startsWith("http")) return image;
-
-        if (image.startsWith("/")) {
-            return `http://localhost:3000${image}`;
+        if (image.startsWith("http://") || image.startsWith("https://")) {
+            return image;
         }
 
-        return `http://localhost:3000/uploads/${image}`;
+        const API_URL = import.meta.env.VITE_API_URL;
+
+        if (image.startsWith("/")) {
+            return `${API_URL}${image}`;
+        }
+
+        return `${API_URL}/uploads/${image}`;
     }
 
     const images = product
@@ -322,8 +326,8 @@ function ProductDetail() {
                             <div className={`product-feedback ${message.includes("aggiunto") ? "success" : "error"
                                 }`}>
                                 <i className={`bi ${message.includes("aggiunto")
-                                        ? "bi-check-circle-fill"
-                                        : "bi-info-circle"
+                                    ? "bi-check-circle-fill"
+                                    : "bi-info-circle"
                                     }`}></i>
                                 <span>{message}</span>
 

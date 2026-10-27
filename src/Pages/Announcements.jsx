@@ -183,18 +183,26 @@ function Announcements({
         return Number(annuncio.user_id) === Number(userId);
     }
 
-    // Costruisce l'URL dell'immagine.
     function getImageUrl(annuncio) {
         const image = annuncio.image ?? annuncio.photo;
 
         if (!image) return null;
 
+        // Se l'immagine ha già un URL completo, lo restituisce
         if (image.startsWith("http://") || image.startsWith("https://")) {
             return image;
         }
 
-        return `http://localhost:3000/${image.startsWith("/") ? image.slice(1) : image
-            }`;
+        // URL del backend configurato nel file .env
+        const API_URL = import.meta.env.VITE_API_URL;
+
+        // Rimuove lo slash iniziale, se presente
+        const imagePath = image.startsWith("/")
+            ? image.slice(1)
+            : image;
+
+        // Costruisce l'URL completo dell'immagine
+        return `${API_URL}/${imagePath}`;
     }
 
     // Apre il modulo di modifica.

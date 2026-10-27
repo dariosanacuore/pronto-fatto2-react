@@ -18,10 +18,10 @@ function Contacts() {
 
         setLoading(true);
         setFeedback("");
-
+        const API_URL = import.meta.env.VITE_API_URL;
         try {
             const response = await axios.post(
-                "http://localhost:3000/api/contatti",
+                `${import.meta.env.VITE_API_URL}/api/contatti`,
                 {
                     nome,
                     email,

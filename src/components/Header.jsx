@@ -69,17 +69,22 @@ function Header() {
     function getImageUrl(image) {
         if (!image) return null;
 
+        // Se l'immagine ha già un URL completo, lo restituisce
         if (image.startsWith("http")) {
             return image;
         }
 
+        // URL del backend, configurato nel file .env
+        const API_URL = import.meta.env.VITE_API_URL;
+
+        // Se il percorso inizia con "/", aggiunge solo il backend
         if (image.startsWith("/")) {
-            return `http://localhost:3000${image}`;
+            return `${API_URL}${image}`;
         }
 
-        return `http://localhost:3000/uploads/${image}`;
+        // Altrimenti cerca l'immagine nella cartella uploads
+        return `${API_URL}/uploads/${image}`;
     }
-
     return (
 
         <nav className="navbar bg-white header-navbar">

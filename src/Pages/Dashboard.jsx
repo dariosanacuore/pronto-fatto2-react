@@ -17,6 +17,8 @@ function Dashboard() {
     const [prezzoMin, setPrezzoMin] = useState("");
     const [prezzoMax, setPrezzoMax] = useState("");
 
+    const API_URL = import.meta.env.VITE_API_URL;
+
     useEffect(() => {
         api.get("/profile")
             .then((response) => {
@@ -36,7 +38,7 @@ function Dashboard() {
             return image;
         }
 
-        return `http://localhost:3000${image.startsWith("/") ? "" : "/"}${image}`;
+        return `${import.meta.env.VITE_API_URL}${image.startsWith("/") ? "" : "/"}${image}`;
     }
 
     return (

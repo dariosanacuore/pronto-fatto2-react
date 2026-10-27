@@ -13,19 +13,18 @@ function Messages() {
     const [errore, setErrore] = useState("");
 
     const navigate = useNavigate();
-
+    const API_URL = import.meta.env.VITE_API_URL;
     useEffect(() => {
         async function caricaConversazioni() {
             try {
                 setErrore("");
 
                 const risposta = await axios.get(
-                    "http://localhost:3000/api/chat/conversazioni",
+                    `${import.meta.env.VITE_API_URL}/api/chat/conversazioni`,
                     {
                         withCredentials: true
                     }
                 );
-
                 setConversazioni(risposta.data);
             } catch (error) {
                 setErrore(

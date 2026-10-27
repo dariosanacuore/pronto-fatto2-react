@@ -7,6 +7,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../css/Chat.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function Chat() {
     const { id } = useParams();
 
@@ -35,11 +37,11 @@ function Chat() {
                 const [rispostaMessaggi, rispostaUtente] =
                     await Promise.all([
                         axios.get(
-                            `http://localhost:3000/api/chat/conversazioni/${id}/messaggi`,
+                            `${API_URL}/api/chat/conversazioni/${id}/messaggi`,
                             { withCredentials: true }
                         ),
                         axios.get(
-                            "http://localhost:3000/api/profile",
+                            `${API_URL}/api/profile`,
                             { withCredentials: true }
                         )
                     ]);
@@ -49,7 +51,7 @@ function Chat() {
                 setMessaggi(rispostaMessaggi.data);
                 setUtente(rispostaUtente.data);
 
-                connessione = io("http://localhost:3000", {
+                connessione = io(API_URL, {
                     withCredentials: true
                 });
 
@@ -57,6 +59,7 @@ function Chat() {
                     if (!attivo) return;
 
                     setConnesso(true);
+                    setErrore("");
 
                     connessione.emit(
                         "entra-conversazione",
@@ -72,11 +75,20 @@ function Chat() {
                 });
 
                 connessione.on("disconnect", () => {
-                    if (attivo) setConnesso(false);
+                    if (attivo) {
+                        setConnesso(false);
+                    }
                 });
 
                 connessione.on("connect_error", (error) => {
-                    if (attivo) setErrore(error.message);
+                    if (!attivo) return;
+
+                    setConnesso(false);
+                    setErrore(
+                        "Impossibile collegarsi alla chat. Riprova tra poco."
+                    );
+
+                    console.error("Errore Socket.IO:", error.message);
                 });
 
                 connessione.on("nuovo-messaggio", (messaggio) => {
@@ -107,14 +119,28 @@ function Chat() {
                         "Impossibile caricare la conversazione."
                     );
                 }
+
+                console.error(
+                    "Errore nel caricamento della chat:",
+                    error
+                );
             }
+        }
+
+        if (!API_URL) {
+            setErrore(
+                "URL del backend non configurato. Controlla VITE_API_URL."
+            );
+            return;
         }
 
         avviaChat();
 
         return () => {
             attivo = false;
+
             connessione?.disconnect();
+
             setSocket(null);
             setConnesso(false);
         };
@@ -293,10 +319,7 @@ function Chat() {
 
                     {/* Errore */}
                     {errore && (
-                        <div
-                            className="chat-error"
-                            role="alert"
-                        >
+                        <div className="chat-error" role="alert">
                             <i className="bi bi-exclamation-circle"></i>
                             <span>{errore}</span>
                         </div>
@@ -334,7 +357,9 @@ function Chat() {
                             }
                             aria-label="Invia messaggio"
                         >
-                            <span>Invia</span>
+                            <span>
+                                {invioInCorso ? "Invio..." : "Invia"}
+                            </span>
                             <i className="bi bi-send-fill"></i>
                         </button>
                     </form>
