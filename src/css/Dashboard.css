@@ -1,0 +1,113 @@
+/* Pulsante Cerca subito */
+
+.btn-ricerca-home {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    min-height: 54px;
+    padding: 15px 27px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 14px;
+
+    background: linear-gradient(135deg, #7657ff 0%, #4b5cff 100%);
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+
+    box-shadow: 0 6px 22px rgba(103, 82, 255, 0.3);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        filter 0.25s ease;
+}
+
+.btn-ricerca-home:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 11px 30px rgba(103, 82, 255, 0.45);
+    filter: brightness(1.12);
+    color: #ffffff;
+}
+
+.btn-ricerca-home:active {
+    transform: scale(0.97);
+}
+
+.btn-ricerca-home i {
+    font-size: 18px;
+}
+
+.btn-ricerca-home .freccia-ricerca {
+    margin-left: 5px;
+    transition: transform 0.25s ease;
+}
+
+.btn-ricerca-home:hover .freccia-ricerca {
+    transform: translateX(5px);
+}
+
+.btn-ricerca-home.ricerca-aperta {
+    background: linear-gradient(135deg, #5140c9 0%, #363fa8 100%);
+}
+
+.btn-ricerca-home:focus-visible {
+    outline: 3px solid rgba(144, 119, 255, 0.55);
+    outline-offset: 4px;
+}
+
+/* Pulsante Cerca annunci nel modulo */
+
+.btn-cerca-annunci {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    min-height: 48px;
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 11px;
+
+    background: linear-gradient(135deg, #7657ff, #4b5cff);
+    color: #ffffff;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+.btn-cerca-annunci:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(103, 82, 255, 0.3);
+    filter: brightness(1.1);
+    color: #ffffff;
+}
+
+.btn-cerca-annunci i {
+    font-size: 16px;
+}
+
+@media (max-width: 576px) {
+    .btn-ricerca-home {
+        min-height: 50px;
+        padding: 13px 20px;
+        font-size: 15px;
+        gap: 10px;
+    }
+
+    .btn-cerca-annunci {
+        width: 100%;
+    }
+}
