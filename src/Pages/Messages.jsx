@@ -145,7 +145,7 @@ function Messages() {
 
                                     <button
                                         className="messages-browse-button"
-                                        onClick={() => navigate("/annunci")}
+                                        onClick={() => navigate("/dashboard")}
                                     >
                                         Esplora gli annunci
                                     </button>
