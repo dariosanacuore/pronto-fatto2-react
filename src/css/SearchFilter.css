@@ -1,64 +1,170 @@
+.search-filter-section {
+    width: 100%;
+    margin: 30px auto;
+    padding: 30px;
+    border: 1px solid #302b50;
+    border-radius: 22px;
+    background:
+        radial-gradient(circle at top right,
+            rgba(118, 87, 255, 0.15),
+            transparent 40%),
+        #17162b;
+    color: #f4f2ff;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.search-filter-heading {
+    margin-bottom: 25px;
+}
+
+.search-filter-eyebrow {
+    color: #a99aff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.search-filter-heading h2 {
+    margin: 10px 0;
+    color: #ffffff;
+    font-size: clamp(23px, 3vw, 32px);
+    font-weight: 800;
+}
+
+.search-filter-heading p {
+    margin: 0;
+    color: #aaa8c5;
+    font-size: 14px;
+}
+
 .search-filter {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.search-field {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 12px;
-    padding: 20px;
-    margin: 20px 0;
-    background-color: #f5f5f5;
-    border-radius: 12px;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.search-field-main {
+    grid-column: 1 / -1;
+}
+
+.search-field label {
+    color: #d8d4f1;
+    font-size: 13px;
+    font-weight: 700;
 }
 
 .search-filter input,
 .search-filter select {
-    flex: 1;
-    min-width: 150px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 14px;
-}
-
-.price-filters {
-    display: flex;
-    flex: 1;
-    gap: 8px;
-    min-width: 220px;
-}
-
-.price-filters input {
-    width: 50%;
+    width: 100%;
     min-width: 0;
+    min-height: 46px;
+    padding: 12px 14px;
+    border: 1px solid #403963;
+    border-radius: 10px;
+    outline: none;
+    background: #201d38;
+    color: #f4f2ff;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.search-filter button {
-    padding: 12px 18px;
-    border: none;
-    border-radius: 8px;
+.search-filter input::placeholder {
+    color: #8985a8;
+}
+
+.search-filter input:focus,
+.search-filter select:focus {
+    border-color: #9077ff;
+    box-shadow: 0 0 0 3px rgba(118, 87, 255, 0.18);
+}
+
+.search-filter select option {
+    background: #201d38;
+    color: #f4f2ff;
+}
+
+.search-filter-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 5px;
+}
+
+.search-filter-actions button {
+    min-height: 46px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 750;
     cursor: pointer;
-    font-weight: bold;
+    transition: transform 0.2s, background 0.2s;
 }
 
-.search-filter button[type="submit"] {
-    background-color: #222;
-    color: white;
+.search-submit {
+    border: none;
+    background: linear-gradient(135deg, #7657ff, #4b5cff);
+    color: #ffffff;
 }
 
-.search-filter button[type="button"] {
-    background-color: #ddd;
-    color: #222;
+.search-submit:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #6545ed, #3949e8);
 }
 
-@media (max-width: 600px) {
+.search-reset {
+    border: 1px solid #494365;
+    background: transparent;
+    color: #d8d4f1;
+}
+
+.search-reset:hover {
+    background: #292541;
+}
+
+@media (min-width: 992px) {
     .search-filter {
-        flex-direction: column;
-        align-items: stretch;
+        grid-template-columns: 2fr 1.2fr 1fr 1fr;
     }
 
-    .search-filter input,
-    .search-filter select,
-    .price-filters {
+    .search-field-main {
+        grid-column: span 2;
+    }
+
+    .search-filter-actions {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 576px) {
+    .search-filter-section {
+        margin: 20px auto;
+        padding: 20px 15px;
+        border-radius: 16px;
+    }
+
+    .search-filter {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .search-field-main,
+    .search-filter-actions {
+        grid-column: 1;
+    }
+
+    .search-filter-actions {
+        flex-direction: column;
+    }
+
+    .search-filter-actions button {
         width: 100%;
-        box-sizing: border-box;
     }
 }

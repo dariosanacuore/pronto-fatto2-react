@@ -100,7 +100,7 @@ function Footer() {
                             href="mailto:info@prontofatto.it"
                             className="footer-email"
                         >
-                            info@prontofatto.it
+                            prontofattohub@gmail.com
                         </a>
                     </div>
                 </div>
