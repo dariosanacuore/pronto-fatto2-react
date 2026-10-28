@@ -75,6 +75,12 @@ function MobileDropdown({
                                 <i className="bi bi-plus-circle"></i>
                                 Vendi
                             </Link>
+                            <Link to="/messaggi"
+                                onClick={chiudiMenu}
+                            >
+                                <i className="bi bi-chat-dots"></i>
+                                Messaggi
+                            </Link>
 
                             <Link
                                 to="/modifica-profilo"
@@ -114,8 +120,8 @@ function MobileDropdown({
 
                                     <i
                                         className={`bi ${openWishlist
-                                                ? "bi-chevron-up"
-                                                : "bi-chevron-down"
+                                            ? "bi-chevron-up"
+                                            : "bi-chevron-down"
                                             }`}
                                     ></i>
                                 </span>
